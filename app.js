@@ -98,5 +98,19 @@ app.delete("/api/:id", (request, response , next)=>{
 
 
 // app.post("/api/")    
+const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(BASE_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
 
+
+connectDB().then(() => {
 app.listen(PORT, ()=> console.log(`Server is running on port: ${PORT}`))
+    
+})
+// app.listen(PORT, ()=> console.log(`Server is running on port: ${PORT}`))
