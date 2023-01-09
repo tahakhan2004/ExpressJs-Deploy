@@ -17,7 +17,11 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/api", routerr)
+app.get("/check", (request, response , next)=>{
+    
+    response.send("delete single user")
 
+})
 // connected with frontend
 app.post("/api/add", (req , res , next) =>{
     // const user = req.body
